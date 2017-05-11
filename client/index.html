@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chirp</title>
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/chirp.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Chirp</a>
+        </div>
+      </div>
+    </nav>
+    <main class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-sm-push-3">
+          <form class="form-stacked" method="post">
+            <div class="form-group">
+              <label for="message">What's Happening?</label>
+              <textarea class="form-control" name="message" id="message"></textarea>
+            </div>
+            <button type="button" class="cp-donate btn btn-default pull-left">Add donation</button>
+            <button type="button" class="cp-post btn btn-primary pull-right">Post</button>
+          </form>
+
+        </div>
+      </div>
+    </main>
+
+  <script src="js/vendor/vue.js"></script>
+  <script src="js/index.js"></script>
   </body>
 </html>

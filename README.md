@@ -1,6 +1,9 @@
 # chirp
 Demo of a social network with donations
 
+## URLs
+http://chirp-chirp.apps.ehealth.rht-labs.com/v1/messages
+
 ## Goals
 - simple page with vue code reaching out to a REST endpoint
 (promises), and showing the response on the page
