@@ -1,0 +1,126 @@
+swagger: "2.0"
+info:
+  title: Chirp API
+  description: API for a social network with donations.
+  version: 1.0.0
+
+host: api.example.com
+basePath: /v1
+schemes:
+  - https
+
+paths:
+  /messages:
+    get:
+      summary: 'Return recent messages.'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+    post:
+      summary: Add a new message.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: message
+          description: 'Message with optional donation.'
+          schema:
+            type: 'object'
+            required:
+              - text
+            properties:
+              text:
+                type: string
+              donation:
+                $ref: '#definitions/Donation'
+      responses:
+        200:
+          description: OK
+        403:
+          description: 'Improperly formatted post'
+  /transactions:
+    post:
+      summary: Process a donation.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: message
+          description: 'Payment information.'
+          schema:
+            type: 'object'
+            required:
+              - cardNumber
+              - amount
+              - currency
+            properties:
+              cardNumber:
+                type: string
+                format: 'Credit card number'
+              amount:
+                type: number
+                format: float
+              orgCode:
+                type: string
+              currency:
+                $ref: '#definitions/Currency'
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              transactionId:
+                type: string
+                format: uuid
+        403:
+          description: 'Improperly formatted post'
+definitions:
+  Message:
+    type: 'object'
+    required:
+      - 'text'
+    properties:
+      text:
+        type: string
+      id:
+        type: string
+        format: uuid
+      donation:
+        $ref: '#definitions/Donation'
+  Donation:
+    type: 'object'
+    required:
+      - amount
+      - currency
+      - orgCode
+      - orgName
+    properties:
+      amount:
+        type: number
+        format: float
+      currency:
+        $ref: '#definitions/Currency'
+      orgCode:
+        type: string
+      orgName:
+        type: string
+      transactionId:
+        type: string
+        format: uuid
+  Currency:
+    type: string
+    enum:
+      - USD
+      - GBP
+      - EUR
