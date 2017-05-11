@@ -8,11 +8,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.*;
 /**
- * Message1
+ * Payment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-05-11T19:51:44.331Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-05-11T20:19:35.562Z")
 
-public class Message1   {
+public class Payment   {
   @JsonProperty("cardNumber")
   private String cardNumber = null;
 
@@ -58,7 +58,7 @@ public class Message1   {
   @JsonProperty("currency")
   private CurrencyEnum currency = null;
 
-  public Message1 cardNumber(String cardNumber) {
+  public Payment cardNumber(String cardNumber) {
     this.cardNumber = cardNumber;
     return this;
   }
@@ -77,7 +77,7 @@ public class Message1   {
     this.cardNumber = cardNumber;
   }
 
-  public Message1 amount(Float amount) {
+  public Payment amount(Float amount) {
     this.amount = amount;
     return this;
   }
@@ -96,7 +96,7 @@ public class Message1   {
     this.amount = amount;
   }
 
-  public Message1 orgCode(String orgCode) {
+  public Payment orgCode(String orgCode) {
     this.orgCode = orgCode;
     return this;
   }
@@ -114,7 +114,7 @@ public class Message1   {
     this.orgCode = orgCode;
   }
 
-  public Message1 currency(CurrencyEnum currency) {
+  public Payment currency(CurrencyEnum currency) {
     this.currency = currency;
     return this;
   }
@@ -142,11 +142,11 @@ public class Message1   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Message1 message1 = (Message1) o;
-    return Objects.equals(this.cardNumber, message1.cardNumber) &&
-        Objects.equals(this.amount, message1.amount) &&
-        Objects.equals(this.orgCode, message1.orgCode) &&
-        Objects.equals(this.currency, message1.currency);
+    Payment payment = (Payment) o;
+    return Objects.equals(this.cardNumber, payment.cardNumber) &&
+        Objects.equals(this.amount, payment.amount) &&
+        Objects.equals(this.orgCode, payment.orgCode) &&
+        Objects.equals(this.currency, payment.currency);
   }
 
   @Override
@@ -157,7 +157,7 @@ public class Message1   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Message1 {\n");
+    sb.append("class Payment {\n");
     
     sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");

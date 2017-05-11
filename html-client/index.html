@@ -311,7 +311,7 @@ font-style: italic;
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">message <a href="#Message_1">Message_1</a> (optional)</div>
+      <div class="param">payment <a href="#Payment">Payment</a> (optional)</div>
 
       <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Payment information. </div>
 
@@ -362,8 +362,8 @@ font-style: italic;
     <li><a href="#inline_response_200"><code>inline_response_200</code></a></li>
     <li><a href="#inline_response_200_1"><code>inline_response_200_1</code></a></li>
     <li><a href="#message"><code>message</code></a></li>
-    <li><a href="#message_1"><code>message_1</code></a></li>
     <li><a href="#messages_donation"><code>messages_donation</code></a></li>
+    <li><a href="#payment"><code>payment</code></a></li>
   </ol>
 
   <div class="model">
@@ -410,18 +410,6 @@ font-style: italic;
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3 class="field-label"><a name="message_1">message_1 - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">cardNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: Credit card number</div>
-<div class="param">amount </div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
-<div class="param">orgCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">currency </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-        <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">USD</div><div class="param-enum">GBP</div><div class="param-enum">EUR</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
     <h3 class="field-label"><a name="messages_donation">messages_donation - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
@@ -432,6 +420,18 @@ font-style: italic;
 <div class="param">orgCode </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">orgName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">transactionId (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3 class="field-label"><a name="payment">payment - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+      <div class="param">cardNumber </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: Credit card number</div>
+<div class="param">amount </div><div class="param-desc"><span class="param-type"><a href="#float">Float</a></span>  format: float</div>
+<div class="param">orgCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">currency </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">USD</div><div class="param-enum">GBP</div><div class="param-enum">EUR</div>
     </div>  <!-- field-items -->
   </div>
   </body>
