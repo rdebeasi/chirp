@@ -7,7 +7,7 @@ TODO: Run the following commands as npm tasks.
 
 ## Running a server
 
-This command hosts just the static files, not the API. Alternately, you could use the CDK to host both the API and the client locally.
+This command hosts just the static files, not the API. Alternately, you could use the [CDK](https://developers.redhat.com/products/cdk/overview/) to host both the API and the client locally.
 
 ```
 ./node_modules/.bin/harp server

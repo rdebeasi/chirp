@@ -9,7 +9,7 @@
   // We wrap our code in an IIFE to prevent our variables from leaking into global
   // scope. http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 
-  var apiBase = 'http://localhost:8080/v1/';
+  var apiBase = 'http://api.apps.ehealth.rht-labs.com/v1/';
 
   // Create a viewModel, using the Vue constructor function.
   var vm = new Vue({
