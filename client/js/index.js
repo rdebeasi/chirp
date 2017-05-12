@@ -1,6 +1,7 @@
-(function() {
+'use strict';
+
+(function () {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
-  "use strict";
 
   // In a larger application, we'd use ES6 modules to import Vue and Axios.
   // For now, we're including them in script tags, making them available globally.
@@ -24,38 +25,38 @@
     },
     methods: {
       // In a Vue method, `this` is the viewModel.
-      makePayment: function() {
+      makePayment: function () {
         return axios.post(apiBase + 'payment-gateway', {
           amount: this.draft.amount,
           cardNumber: this.draft.card
         });
       },
-      sendMessage: function( transaction ) {
+      sendMessage: function (transaction) {
         return axios.post(apiBase + 'donation', {
           amount: this.draft.amount,
           message: this.draft.message,
           transactionId: transaction.data.transactionId
         });
       },
-      showSuccess: function(donation) {
+      showSuccess: function (donation) {
         // Add message to the beginning of the array.
-        this.messages.unshift( donation.data );
+        this.messages.unshift(donation.data);
       },
-      onSubmit: function(event) {
+      onSubmit: function () {
         this.makePayment()
-          .then( this.sendMessage )
-          .then( this.showSuccess )
-          .catch( function(error) { console.log(error) });
+          .then(this.sendMessage)
+          .then(this.showSuccess)
+          .catch(function (error) { console.log(error); });
       }
     }
   });
 
   axios.get(apiBase + 'donation')
-    .then(function(response) {
+    .then(function (response) {
       // Store messages in reverse-chronological order.
       vm.messages = response.data.reverse();
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
-})();
+}());

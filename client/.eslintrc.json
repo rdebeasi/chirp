@@ -1,0 +1,21 @@
+{
+    "extends": "airbnb-base/legacy",
+    "plugins": [
+        "import"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 5,
+        "sourceType": "script"
+    },
+    "env": {
+      "browser": "true"
+    },
+    "globals": {
+      "Vue": false,
+      "axios": false
+    },
+    "rules": {
+        "no-console": "off",
+        "func-names": "off"
+    }
+}
