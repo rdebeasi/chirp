@@ -17,8 +17,9 @@ paths:
         - application/json
       responses:
         200:
-          description: 'OK'
+          description: 'List of messages. transactionId may be empty.'
           schema:
+            title: messageList
             type: array
             items:
               $ref: '#/definitions/Message'
@@ -33,14 +34,7 @@ paths:
           name: message
           description: 'Message with optional donation.'
           schema:
-            type: 'object'
-            required:
-              - text
-            properties:
-              text:
-                type: string
-              donation:
-                $ref: '#definitions/Donation'
+            $ref: '#definitions/Message'
       responses:
         200:
           description: OK
@@ -55,34 +49,15 @@ paths:
         - application/json
       parameters:
         - in: body
-          name: message
-          description: 'Payment information.'
+          name: trasnaction
+          description: 'Payment information from client. Transaction ID is empty.'
           schema:
-            type: 'object'
-            required:
-              - cardNumber
-              - amount
-              - currency
-            properties:
-              cardNumber:
-                type: string
-                format: 'Credit card number'
-              amount:
-                type: number
-                format: float
-              orgCode:
-                type: string
-              currency:
-                $ref: '#definitions/Currency'
+            $ref: '#/definitions/Transaction'
       responses:
         200:
-          description: OK
+          description: 'Transaction ID is now populated.'
           schema:
-            type: object
-            properties:
-              transactionId:
-                type: string
-                format: uuid
+            $ref: '#/definitions/Transaction'
         403:
           description: 'Improperly formatted post'
 definitions:
@@ -97,24 +72,37 @@ definitions:
         type: string
         format: uuid
       donation:
-        $ref: '#definitions/Donation'
-  Donation:
+        type: object
+        properties:
+          amount:
+            type: number
+            format: float
+          currency:
+            $ref: '#definitions/Currency'
+          orgCode:
+            type: string
+          orgName:
+            type: string
+          transactionId:
+            type: string
+            format: uuid
+  Transaction:
     type: 'object'
     required:
+      - cardNumber
       - amount
       - currency
-      - orgCode
-      - orgName
     properties:
+      cardNumber:
+        type: string
+        format: 'Credit card number'
       amount:
         type: number
         format: float
-      currency:
-        $ref: '#definitions/Currency'
       orgCode:
         type: string
-      orgName:
-        type: string
+      currency:
+        $ref: '#definitions/Currency'
       transactionId:
         type: string
         format: uuid
