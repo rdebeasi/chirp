@@ -34,6 +34,8 @@
         });
       },
       showSuccess: function(stuff) {
+        // Add message to the beginning of the array.
+        this.messages.unshift( stuff.data );
         console.log('success', stuff);
       },
       onSubmit: function(event) {
@@ -49,7 +51,8 @@
 
   axios.get(apiBase + 'donation')
     .then(function(response) {
-      vm.messages = response.data;
+      // Store messages in reverse-chronological order.
+      vm.messages = response.data.reverse();
       console.log(vm.messages);
     })
     .catch(function(error) {
