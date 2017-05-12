@@ -9,6 +9,7 @@
   // We wrap our code in an IIFE to prevent our variables from leaking into global
   // scope. http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 
+  // TODO: Switch back before committing!
   var apiBase = 'http://api.apps.ehealth.rht-labs.com/v1/';
 
   // Create a viewModel, using the Vue constructor function.
@@ -33,6 +34,24 @@
         this.alert.text = '';
         this.alert.type = 'info';
       },
+      validate: function () {
+        // With ES6, we can use arrow functions to avoid having to save a reference to this.
+        var self = this;
+        // In a larger app, we would use a library such as Vuelidate.
+        return new Promise(function (resolve, reject) {
+          if (self.draft.card === '') {
+            return reject(Error('Card number is required.'));
+          }
+          if (isNaN(self.draft.amount)) {
+            // The web browser may catch this error for us.
+            return reject(Error('Amount must be a number.'));
+          }
+          if (self.draft.amount <= 0) {
+            return reject(Error('Amount must be positive.'));
+          }
+          return resolve();
+        });
+      },
       makePayment: function () {
         return axios.post(apiBase + 'payment-gateway', {
           amount: this.draft.amount,
@@ -48,8 +67,7 @@
       },
       handleError: function (error) {
         this.alert.type = 'danger';
-        this.alert.text = 'Something went wrong. Please reload or check back later.';
-        console.log(error);
+        this.alert.text = error.message;
       },
       handleSuccess: function () {
         this.alert.type = 'success';
@@ -60,7 +78,8 @@
         this.messages.unshift(donation.data);
       },
       onSubmit: function () {
-        this.makePayment()
+        this.validate()
+          .then(this.makePayment)
           .then(this.sendMessage)
           .then(this.showSuccess)
           .then(this.handleSuccess)

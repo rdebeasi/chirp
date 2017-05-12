@@ -2,6 +2,11 @@
   margin-top: 15px;
 }
 
+.list-group-item {
+  /* Keep item from "collapsing" if there is no text. */
+  min-height: 40px;
+}
+
 [v-cloak] {
   /* Hide the template until Vue starts up.
    * https://vuejs.org/v2/api/#v-cloak */

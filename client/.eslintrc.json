@@ -12,10 +12,10 @@
     },
     "globals": {
       "Vue": false,
-      "axios": false
+      "axios": false,
+      "Promise": false
     },
     "rules": {
-        "no-console": "off",
         "func-names": "off"
     }
 }
