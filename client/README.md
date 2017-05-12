@@ -2,7 +2,8 @@
 
 ## Initial setup
 
-Navigate to the `client` directory, then run `npm install`.
+Install [Node.js](https://nodejs.org/) if it isn't already installed. Then, navigate to the `client` directory, then run `npm install`.
+
 TODO: Run the following commands as npm tasks.
 
 ## Running a server
