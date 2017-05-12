@@ -21,7 +21,7 @@
         <div class="col-md-6 col-md-push-3">
           <div class="alert" v-bind:class="'alert-' + alert.type" v-cloak v-show="alert.text">
             <button type="button" class="close" aria-label="Close" v-on:click.prevent="clearAlert"><span>&times;</span></button>
-            {{alert.text}}
+            <span v-html="alert.text"></span>
           </div>
           <form class="form-stacked cp-form clearfix" method="post" v-on:submit.prevent="onSubmit">
             <div class="form-group">

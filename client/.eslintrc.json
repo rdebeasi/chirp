@@ -16,6 +16,7 @@
       "Promise": false
     },
     "rules": {
-        "func-names": "off"
+        "func-names": "off",
+        "no-multi-str": "off"
     }
 }
