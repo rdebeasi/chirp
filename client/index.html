@@ -15,23 +15,41 @@
         </div>
       </div>
     </nav>
-    <main class="container-fluid">
+    <main class="container-fluid" id="app">
       <div class="row">
-        <div class="col-md-6 col-sm-push-3">
-          <form class="form-stacked" method="post">
+        <div class="col-md-6 col-md-push-3">
+          <form class="form-stacked cp-form clearfix" method="post">
             <div class="form-group">
               <label for="message">What's Happening?</label>
               <textarea class="form-control" name="message" id="message"></textarea>
             </div>
-            <button type="button" class="cp-donate btn btn-default pull-left">Add donation</button>
-            <button type="button" class="cp-post btn btn-primary pull-right">Post</button>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="card">Card Number</label>
+                <input type="text" name="card" id="card" class="form-control">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="amount">Donation Amount</label>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" name="amount" id="amount" class="form-control">
+                </div>
+              </div>
+            </div>
+            <button type="button" class="cp-post btn btn-primary pull-right">Donate &amp; Post</button>
           </form>
-
+          <h3>Chirps</h3>
+          <ul class="cp-messages list-group" v-cloak>
+            <li class="list-group-item" v-for="message in messages">
+              <span class="badge">${{message.amount}}</span>
+              {{message.message}}
+            </li>
+          </ul>
         </div>
       </div>
     </main>
 
-  <script src="js/vendor/vue.js"></script>
-  <script src="js/index.js"></script>
+    <script src="js/vendor/vue.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
