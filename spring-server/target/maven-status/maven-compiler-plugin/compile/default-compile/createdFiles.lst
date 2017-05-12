@@ -1,0 +1,15 @@
+io/swagger/api/DonationApiController.class
+io/swagger/model/Donation.class
+io/swagger/model/PaymentGateway.class
+io/swagger/api/ApiOriginFilter.class
+io/swagger/Swagger2SpringBoot.class
+io/swagger/api/ApiResponseMessage.class
+io/swagger/Swagger2SpringBoot$ExitException.class
+io/swagger/configuration/HomeController.class
+io/swagger/api/NotFoundException.class
+io/swagger/api/DonationApi.class
+io/swagger/configuration/SwaggerDocumentationConfig.class
+io/swagger/api/PaymentGatewayApi.class
+io/swagger/RFC3339DateFormat.class
+io/swagger/api/PaymentGatewayApiController.class
+io/swagger/api/ApiException.class

@@ -11,6 +11,7 @@
 
   // TODO: Switch back before committing!
   var apiBase = 'http://api.apps.ehealth.rht-labs.com/v1/';
+  // var apiBase = 'http://localhost:8080/v1/';
 
   // Create a viewModel, using the Vue constructor function.
   var vm = new Vue({
@@ -69,20 +70,21 @@
         this.alert.type = 'danger';
         this.alert.text = error.message;
       },
-      handleSuccess: function () {
-        this.alert.type = 'success';
-        this.alert.text = 'Your message and donation have been sent! Thank you! :)';
-      },
-      showSuccess: function (donation) {
+      handleNewMessage: function (donation) {
         // Add message to the beginning of the array.
         this.messages.unshift(donation.data);
+        // Clear out the UI
+        this.draft.amount = '';
+        this.draft.message = '';
+        this.draft.card = '';
+        this.alert.type = 'success';
+        this.alert.text = 'Your message and donation have been sent! Thank you! :)';
       },
       onSubmit: function () {
         this.validate()
           .then(this.makePayment)
           .then(this.sendMessage)
-          .then(this.showSuccess)
-          .then(this.handleSuccess)
+          .then(this.handleNewMessage)
           .catch(this.handleError);
       }
     },

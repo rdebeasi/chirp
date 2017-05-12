@@ -1,0 +1,14 @@
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/model/Donation.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/Swagger2SpringBoot.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/configuration/SwaggerDocumentationConfig.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/configuration/HomeController.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/NotFoundException.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/PaymentGatewayApiController.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/DonationApiController.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/ApiResponseMessage.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/model/PaymentGateway.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/DonationApi.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/RFC3339DateFormat.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/ApiOriginFilter.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/PaymentGatewayApi.java
+/home/rdebeasi/Projects/chirp/spring-server/src/main/java/io/swagger/api/ApiException.java
