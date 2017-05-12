@@ -3,9 +3,7 @@
 }
 
 [v-cloak] {
-  /*
-   * Hide the template until Vue starts up.
-   * https://vuejs.org/v2/api/#v-cloak
-  */
+  /* Hide the template until Vue starts up.
+   * https://vuejs.org/v2/api/#v-cloak */
   display: none;
 }
