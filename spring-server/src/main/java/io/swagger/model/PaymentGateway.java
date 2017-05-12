@@ -8,13 +8,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.UUID;
 import javax.validation.constraints.*;
 /**
- * Donation
+ * PaymentGateway
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-05-12T01:38:34.826Z")
 
-public class Donation   {
-  @JsonProperty("message")
-  private String message = null;
+public class PaymentGateway   {
+  @JsonProperty("cardNumber")
+  private String cardNumber = null;
 
   @JsonProperty("amount")
   private Float amount = null;
@@ -22,25 +22,26 @@ public class Donation   {
   @JsonProperty("transactionId")
   private UUID transactionId = null;
 
-  public Donation message(String message) {
-    this.message = message;
+  public PaymentGateway cardNumber(String cardNumber) {
+    this.cardNumber = cardNumber;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get cardNumber
+   * @return cardNumber
   **/
-  @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+  public String getCardNumber() {
+    return cardNumber;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setCardNumber(String cardNumber) {
+    this.cardNumber = cardNumber;
   }
 
-  public Donation amount(Float amount) {
+  public PaymentGateway amount(Float amount) {
     this.amount = amount;
     return this;
   }
@@ -49,7 +50,8 @@ public class Donation   {
    * Get amount
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
   public Float getAmount() {
     return amount;
   }
@@ -58,7 +60,7 @@ public class Donation   {
     this.amount = amount;
   }
 
-  public Donation transactionId(UUID transactionId) {
+  public PaymentGateway transactionId(UUID transactionId) {
     this.transactionId = transactionId;
     return this;
   }
@@ -85,23 +87,23 @@ public class Donation   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Donation donation = (Donation) o;
-    return Objects.equals(this.message, donation.message) &&
-        Objects.equals(this.amount, donation.amount) &&
-        Objects.equals(this.transactionId, donation.transactionId);
+    PaymentGateway paymentGateway = (PaymentGateway) o;
+    return Objects.equals(this.cardNumber, paymentGateway.cardNumber) &&
+        Objects.equals(this.amount, paymentGateway.amount) &&
+        Objects.equals(this.transactionId, paymentGateway.transactionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, amount, transactionId);
+    return Objects.hash(cardNumber, amount, transactionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Donation {\n");
+    sb.append("class PaymentGateway {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    cardNumber: ").append(toIndentedString(cardNumber)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("}");

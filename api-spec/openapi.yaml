@@ -4,13 +4,41 @@ info:
   description: API for a social network with donations.
   version: 1.0.0
 
-host: api.example.com
+host: chirp-chirp.apps.ehealth.rht-labs.com
 basePath: /v1
 schemes:
   - https
 
+definitions:
+  Donation:
+    type: object
+    properties:
+      message:
+        type: string
+      amount:
+        type: number
+        format: float
+      transactionId:
+        type: string
+        format: uuid
+  PaymentGateway:
+    type: 'object'
+    required:
+      - cardNumber
+      - amount
+    properties:
+      cardNumber:
+        type: string
+        format: 'Credit card number'
+      amount:
+        type: number
+        format: float
+      transactionId:
+        type: string
+        format: uuid
+
 paths:
-  /messages:
+  /donation:
     get:
       summary: 'Return recent messages.'
       produces:
@@ -19,10 +47,10 @@ paths:
         200:
           description: 'List of messages. transactionId may be empty.'
           schema:
-            title: messageList
-            type: array
+            title: Donation
+            type: object
             items:
-              $ref: '#/definitions/Message'
+              $ref: '#/definitions/Donation'
     post:
       summary: Add a new message.
       produces:
@@ -31,16 +59,16 @@ paths:
         - application/json
       parameters:
         - in: body
-          name: message
+          name: donation
           description: 'Message with optional donation.'
           schema:
-            $ref: '#definitions/Message'
+            $ref: '#definitions/Donation'
       responses:
         200:
           description: OK
         403:
           description: 'Improperly formatted post'
-  /transactions:
+  /payment-gateway:
     post:
       summary: Process a donation.
       produces:
@@ -49,66 +77,18 @@ paths:
         - application/json
       parameters:
         - in: body
-          name: trasnaction
+          name: paymentGateway
           description: 'Payment information from client. Transaction ID is empty.'
           schema:
-            $ref: '#/definitions/Transaction'
+            $ref: '#/definitions/PaymentGateway'
       responses:
         200:
-          description: 'Transaction ID is now populated.'
+          description: 'transactionId'
           schema:
-            $ref: '#/definitions/Transaction'
+            title: paymentGateway
+            type: object
+            items:
+              $ref: '#/definitions/PaymentGateway'
         403:
           description: 'Improperly formatted post'
-definitions:
-  Message:
-    type: 'object'
-    required:
-      - 'text'
-    properties:
-      text:
-        type: string
-      id:
-        type: string
-        format: uuid
-      donation:
-        type: object
-        properties:
-          amount:
-            type: number
-            format: float
-          currency:
-            $ref: '#definitions/Currency'
-          orgCode:
-            type: string
-          orgName:
-            type: string
-          transactionId:
-            type: string
-            format: uuid
-  Transaction:
-    type: 'object'
-    required:
-      - cardNumber
-      - amount
-      - currency
-    properties:
-      cardNumber:
-        type: string
-        format: 'Credit card number'
-      amount:
-        type: number
-        format: float
-      orgCode:
-        type: string
-      currency:
-        $ref: '#definitions/Currency'
-      transactionId:
-        type: string
-        format: uuid
-  Currency:
-    type: string
-    enum:
-      - USD
-      - GBP
-      - EUR
+
