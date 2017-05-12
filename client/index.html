@@ -15,7 +15,7 @@
         </div>
       </div>
     </nav>
-    <main class="container-fluid">
+    <main class="container-fluid" id="app">
       <div class="row">
         <div class="col-md-6 col-md-push-3">
           <form class="form-stacked cp-form clearfix" method="post">
@@ -39,23 +39,17 @@
             <button type="button" class="cp-post btn btn-primary pull-right">Donate &amp; Post</button>
           </form>
           <h3>Chirps</h3>
-          <ul class="cp-messages list-group">
-            <li class="list-group-item">
-              <span class="badge">$10</span>
-              Cras justo odio
+          <ul class="cp-messages list-group" v-cloak>
+            <li class="list-group-item" v-for="message in messages">
+              <span class="badge">${{message.amount}}</span>
+              {{message.message}}
             </li>
-            <li class="list-group-item">
-              <span class="badge">$10</span>
-              Dapibus ac facilisis in
-            </li>
-            <li class="list-group-item">Morbi leo risus <span class="badge">$20</span></li>
-            <li class="list-group-item">&nbsp;<span class="badge">$10</span></li>
           </ul>
         </div>
       </div>
     </main>
 
-  <script src="js/vendor/vue.js"></script>
-  <script src="js/index.js"></script>
+    <script src="js/vendor/vue.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

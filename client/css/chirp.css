@@ -1,4 +1,11 @@
 .cp-messages {
-  clear: both;
   margin-top: 15px;
+}
+
+[v-cloak] {
+  /*
+   * Hide the template until Vue starts up.
+   * https://vuejs.org/v2/api/#v-cloak
+  */
+  display: none;
 }
