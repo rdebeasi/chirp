@@ -21,10 +21,18 @@
         message: '',
         card: '',
         amount: ''
+      },
+      alert: {
+        type: 'info', // One of: success, info, warning, danger
+        text: ''
       }
     },
     methods: {
       // In a Vue method, `this` is the viewModel.
+      clearAlert: function () {
+        this.alert.text = '';
+        this.alert.type = 'info';
+      },
       makePayment: function () {
         return axios.post(apiBase + 'payment-gateway', {
           amount: this.draft.amount,
@@ -38,6 +46,15 @@
           transactionId: transaction.data.transactionId
         });
       },
+      handleError: function (error) {
+        this.alert.type = 'danger';
+        this.alert.text = 'Something went wrong. Please reload or check back later.';
+        console.log(error);
+      },
+      handleSuccess: function () {
+        this.alert.type = 'success';
+        this.alert.text = 'Your message and donation have been sent! Thank you! :)';
+      },
       showSuccess: function (donation) {
         // Add message to the beginning of the array.
         this.messages.unshift(donation.data);
@@ -46,17 +63,17 @@
         this.makePayment()
           .then(this.sendMessage)
           .then(this.showSuccess)
-          .catch(function (error) { console.log(error); });
+          .then(this.handleSuccess)
+          .catch(this.handleError);
       }
+    },
+    created: function () {
+      axios.get(apiBase + 'donation')
+        .then(function (response) {
+          // Store messages in reverse-chronological order.
+          vm.messages = response.data.reverse();
+        })
+        .catch(this.handleError);
     }
   });
-
-  axios.get(apiBase + 'donation')
-    .then(function (response) {
-      // Store messages in reverse-chronological order.
-      vm.messages = response.data.reverse();
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 }());
