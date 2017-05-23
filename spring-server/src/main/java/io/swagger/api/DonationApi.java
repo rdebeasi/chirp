@@ -20,7 +20,7 @@ public interface DonationApi {
 
     @ApiOperation(value = "Return recent messages.", notes = "", response = Object.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "List of messages. transactionId may be empty.", response = Object.class) })
+        @ApiResponse(code = 200, message = "List of messages. transactionId may be empty.", responseContainer = "List", response = Donation.class) })
     @RequestMapping(value = "/donation",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
