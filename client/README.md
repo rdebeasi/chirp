@@ -27,3 +27,14 @@ npm run lint
 ```
 
 Alternately, you could use an ESLint plugin for your development environment of choice.
+
+## Installing on OpenShift
+
+To install the Chirp Client on OpenShift:
+
+1. Install the [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/get_started_cli.html).
+2. Log into your OpenShift environment.
+3. (Optional) create a new project: `oc new-project chirp`
+4. Add the application: `oc new-app https://github.com/rdebeasi/chirp/ --context-dir=/client`
+
+OpenShift will use [S2I](https://docs.openshift.com/container-platform/3.5/architecture/core_concepts/builds_and_image_streams.html#source-build) and the [Node.js](https://docs.openshift.com/container-platform/3.5/using_images/s2i_images/nodejs.html) base image to build the application.
