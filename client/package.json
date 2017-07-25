@@ -4,18 +4,18 @@
   "description": "Client for Chirp, a social network with donations",
   "main": "index.js",
   "dependencies": {
-    "harp": "^0.23.0"
+    "http-server": "^0.10.0"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.3",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint": "^3.19.0"
+    "eslint-plugin-import": "^2.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "harp server",
-    "start": "harp server --port 8080"
+    "dev": "http-server -p 9000",
+    "start": "http-server",
+    "lint": "eslint js/index.js; exit 0"
   },
   "repository": {
     "type": "git",
