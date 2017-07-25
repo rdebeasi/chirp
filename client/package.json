@@ -14,7 +14,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "harp server"
+    "dev": "harp server",
+    "start": "harp server --port 8080"
   },
   "repository": {
     "type": "git",
